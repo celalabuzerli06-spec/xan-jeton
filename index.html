@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xan Jeton Satışı</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); color: #ffffff; min-height: 100vh; padding: 20px; display: flex; justify-content: center; }
+        
+        .konteynir { width: 100%; max-width: 420px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; min-height: 90vh; }
+        
+        /* Bölmələr */
+        #home-section, #shop-section { width: 100%; animation: fadeEffect 0.5s; }
+        #shop-section { display: none; }
+
+        @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
+
+        .kart { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px 20px; box-shadow: 0 15px 25px rgba(0,0,0,0.4); margin-bottom: 20px; }
+
+        .basliq { font-size: 32px; font-weight: 700; color: #f6d365; text-transform: uppercase; margin-bottom: 15px; }
+        .destek-info { font-size: 18px; font-weight: 600; color: #4facfe; margin-bottom: 20px; }
+        
+        /* Düymələr */
+        .esas-duyme { display: block; width: 100%; background: linear-gradient(45deg, #f6d365, #fda085); color: #000; padding: 15px; border-radius: 50px; font-weight: 700; text-decoration: none; margin-bottom: 10px; transition: 0.3s; }
+        .geri-duyme { background: rgba(255,255,255,0.1); color: #fff; padding: 10px; border-radius: 50px; display: inline-block; margin-top: 20px; text-decoration: none; font-size: 14px;}
+        
+        .whatsapp-duyme { background: #25D366; color: white; padding: 15px; border-radius: 50px; display: block; text-decoration: none; font-weight: 600; margin-top: 10px;}
+
+        /* Jeton Listi */
+        .jeton-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px; }
+        .jeton-kart { background: rgba(0,0,0,0.3); padding: 15px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); font-size: 14px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; align-items: center;}
+        
+        /* Marketinq Etiketi */
+        .etiket-super { position: absolute; top: 0; right: 0; background: #ff0050; color: #fff; font-size: 10px; font-weight: 700; padding: 3px 8px; border-bottom-left-radius: 8px; letter-spacing: 0.5px;}
+        .etiket-vip { position: absolute; top: 0; right: 0; background: #f6d365; color: #000; font-size: 10px; font-weight: 700; padding: 3px 8px; border-bottom-left-radius: 8px; letter-spacing: 0.5px;}
+        
+        /* Qiymət Dizaynı */
+        .jeton-adi { font-weight: 700; font-size: 16px; margin-bottom: 5px; color: #fff;}
+        .qiymet-kapsulu { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px; }
+        .yeni-qiymet { color: #25d366; font-size: 15px; font-weight: 700; }
+
+        .al-duymesi { width: 100%; background: linear-gradient(45deg, #ff0050, #00f2fe); color: white; padding: 8px; border-radius: 20px; font-size: 13px; display: block; text-decoration: none; font-weight: 600; text-align: center; border: none;}
+        
+        /* Alt Hissə (Footer) */
+        .sayt-haqqinda { margin-top: 30px; font-size: 12px; color: #a0a0a0; line-height: 1.6; }
+        .muellif-wp { color: #f6d365; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 5px; padding: 5px 10px; background: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid rgba(246, 211, 101, 0.3);}
+    </style>
+</head>
+<body>
+
+    <div class="konteynir">
+        
+        <div>
+            <!-- ANA SƏHİFƏ -->
+            <div id="home-section" class="kart">
+                <h1 class="basliq">Xan Jeton</h1>
+                <p style="margin-bottom: 20px;">5 ildir ki, xidmətinizdəyik! Sürətli, etibarlı və ucuz.</p>
+                <div class="destek-info">🎧 Dəstək 7/24</div>
+                
+                <a href="#" onclick="showShop()" class="esas-duyme">TikTok Jeton Satışı 🚀</a>
+                <a href="https://wa.me/994508074145" class="whatsapp-duyme">Bizə Yazın: 050 807 41 45</a>
+            </div>
+
+            <!-- TİKTOK JETON SATIŞI -->
+            <div id="shop-section" class="kart">
+                <h2 class="basliq" style="font-size: 24px;">TikTok Jetonları</h2>
+                <div class="jeton-grid">
+                    
+                    <div class="jeton-kart">
+                        <div class="jeton-adi">200 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">5 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%20200%20jeton%20(5%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="jeton-adi">450 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">10 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%20450%20jeton%20(10%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="etiket-super">🔥 Çox Satılan</div>
+                        <div class="jeton-adi">500 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">11 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%20500%20jeton%20(11%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="jeton-adi">700 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">15 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%20700%20jeton%20(15%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="etiket-vip">💎 Sərfəli</div>
+                        <div class="jeton-adi">1000 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">20 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%201000%20jeton%20(20%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="jeton-adi">1500 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">30 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%201500%20jeton%20(30%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="jeton-adi">2000 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">40 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%202000%20jeton%20(40%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="jeton-adi">2500 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">50 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%202500%20jeton%20(50%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="etiket-super">🔥 Tövsiyə</div>
+                        <div class="jeton-adi">3000 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">60 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%203000%20jeton%20(60%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="jeton-adi">3500 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">70 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%203500%20jeton%20(70%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="jeton-adi">5000 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">100 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%205000%20jeton%20(100%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="etiket-vip">💎 VIP Paket</div>
+                        <div class="jeton-adi">10000 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">200 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%2010000%20jeton%20(200%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="jeton-adi">15000 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">300 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%2015000%20jeton%20(300%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="jeton-adi">20000 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">400 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%2020000%20jeton%20(400%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="jeton-adi">25000 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">500 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%2025000%20jeton%20(500%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                    <div class="jeton-kart">
+                        <div class="etiket-super">🚀 ŞAH PAKET</div>
+                        <div class="jeton-adi">50000 jeton</div>
+                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">1000 AZN</span></div>
+                        <a href="https://wa.me/994508074145?text=Salam,%2050000%20jeton%20(1000%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
+                    </div>
+
+                </div>
+                <a href="#" onclick="showHome()" class="geri-duyme">⬅ Geri Qayıt</a>
+            </div>
+        </div>
+
+        <!-- MÜƏLLİFLİK BÖLMƏSİ (Ən Altda) -->
+        <div class="sayt-haqqinda">
+            <p>Haqqında</p>
+            <p>Bu sayt 19 İyul 2026-cı ildə</p>
+            <p>Cəlal tərəfindən hazırlanmışdır.</p>
+            <!-- WhatsApp Nömrəsinə Birbaşa Link -->
+            <a href="https://wa.me/994517375948" class="muellif-wp">Wp: 051 737 59 48</a>
+        </div>
+
+    </div>
+
+    <script>
+        function showShop() {
+            document.getElementById('home-section').style.display = 'none';
+            document.getElementById('shop-section').style.display = 'block';
+            window.scrollTo(0, 0); // Səhifəni ən yuxarı qaldırır
+        }
+        function showHome() {
+            document.getElementById('home-section').style.display = 'block';
+            document.getElementById('shop-section').style.display = 'none';
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
