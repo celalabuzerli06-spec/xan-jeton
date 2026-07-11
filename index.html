@@ -3,199 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xan Jeton Satışı</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+    <title>Xan Jeton - Premium Xidmətlər</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); color: #ffffff; min-height: 100vh; padding: 20px; display: flex; justify-content: center; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
+        body { background-color: #0b0e14; color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; }
         
-        .konteynir { width: 100%; max-width: 420px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; min-height: 90vh; }
+        /* HEADER VƏ XAN JETON LOQOSU */
+        header { background-color: #121722; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1f2736; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 26px; font-weight: 900; color: #ffffff; text-shadow: 0 0 8px #00cfb4, 0 0 15px #00cfb4; letter-spacing: 1px; cursor: pointer; font-style: italic; }
         
-        /* Bölmələr */
-        #home-section, #shop-section { width: 100%; animation: fadeEffect 0.5s; }
-        #shop-section { display: none; }
+        /* BAYRAQ (DİL DƏYİŞDİRİCİ) */
+        .flag-btn { width: 32px; height: 22px; border-radius: 4px; cursor: pointer; box-shadow: 0 0 5px rgba(0,0,0,0.5); transition: 0.3s; }
+        .flag-az { background: linear-gradient(to bottom, #00b5e2 33.3%, #ef3340 33.3%, #ef3340 66.6%, #50b848 66.6%); }
+        .flag-ru { background: linear-gradient(to bottom, #ffffff 33.3%, #0039a6 33.3%, #0039a6 66.6%, #d52b1e 66.6%); }
 
-        @keyframes fadeEffect { from {opacity: 0;} to {opacity: 1;} }
+        /* SƏHİFƏLƏR */
+        .page { display: none; flex: 1; padding: 15px; animation: fadeIn 0.2s ease-in-out; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        .kart { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px 20px; box-shadow: 0 15px 25px rgba(0,0,0,0.4); margin-bottom: 20px; }
+        /* KİÇİLDİLMİŞ BANNER */
+        .banner { background: linear-gradient(135deg, #0f2041, #1a3673); padding: 20px 15px; border-radius: 10px; text-align: center; border: 1px solid #23438e; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .banner h2 { font-size: 18px; color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
-        .basliq { font-size: 32px; font-weight: 700; color: #f6d365; text-transform: uppercase; margin-bottom: 15px; }
-        .destek-info { font-size: 18px; font-weight: 600; color: #4facfe; margin-bottom: 20px; }
-        
-        /* Düymələr */
-        .esas-duyme { display: block; width: 100%; background: linear-gradient(45deg, #f6d365, #fda085); color: #000; padding: 15px; border-radius: 50px; font-weight: 700; text-decoration: none; margin-bottom: 10px; transition: 0.3s; }
-        .geri-duyme { background: rgba(255,255,255,0.1); color: #fff; padding: 10px; border-radius: 50px; display: inline-block; margin-top: 20px; text-decoration: none; font-size: 14px;}
-        
-        .whatsapp-duyme { background: #25D366; color: white; padding: 15px; border-radius: 50px; display: block; text-decoration: none; font-weight: 600; margin-top: 10px;}
+        /* XİDMƏT KARTLARI (2 SÜTUN) */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .card { background-color: #161d2b; border: 1px solid #1f2736; border-radius: 12px; padding: 15px 10px; text-align: center; cursor: pointer; transition: 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px; }
+        .card:active { background-color: #1a2436; border-color: #00cfb4; }
+        .card-icon { font-size: 28px; margin-bottom: 8px; }
+        .card-title { font-size: 12px; font-weight: 600; color: #e2e8f0; line-height: 1.4; }
 
-        /* Jeton Listi */
-        .jeton-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 20px; }
-        .jeton-kart { background: rgba(0,0,0,0.3); padding: 15px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); font-size: 14px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; align-items: center;}
+        /* JETON VƏ PANEL SİYAHILARI */
+        .list-item { background: #161d2b; border: 1px solid #1f2736; padding: 12px 15px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .list-title { font-size: 14px; font-weight: bold; color: #fff; }
+        .list-price { font-size: 13px; color: #00cfb4; font-weight: bold; margin-right: 10px; }
         
-        /* Marketinq Etiketi */
-        .etiket-super { position: absolute; top: 0; right: 0; background: #ff0050; color: #fff; font-size: 10px; font-weight: 700; padding: 3px 8px; border-bottom-left-radius: 8px; letter-spacing: 0.5px;}
-        .etiket-vip { position: absolute; top: 0; right: 0; background: #f6d365; color: #000; font-size: 10px; font-weight: 700; padding: 3px 8px; border-bottom-left-radius: 8px; letter-spacing: 0.5px;}
-        
-        /* Qiymət Dizaynı */
-        .jeton-adi { font-weight: 700; font-size: 16px; margin-bottom: 5px; color: #fff;}
-        .qiymet-kapsulu { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px; }
-        .yeni-qiymet { color: #25d366; font-size: 15px; font-weight: 700; }
+        .action-btn { background: #00cfb4; color: #000; border: none; padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; }
+        .action-btn:active { background: #00a892; }
 
-        .al-duymesi { width: 100%; background: linear-gradient(45deg, #ff0050, #00f2fe); color: white; padding: 8px; border-radius: 20px; font-size: 13px; display: block; text-decoration: none; font-weight: 600; text-align: center; border: none;}
-        
-        /* Alt Hissə (Footer) */
-        .sayt-haqqinda { margin-top: 30px; font-size: 12px; color: #a0a0a0; line-height: 1.6; }
-        .muellif-wp { color: #f6d365; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 5px; padding: 5px 10px; background: rgba(255,255,255,0.05); border-radius: 10px; border: 1px solid rgba(246, 211, 101, 0.3);}
+        /* GERİ VƏ BÖYÜK ƏLAQƏ DÜYMƏLƏRİ */
+        .back-btn { background: transparent; color: #00cfb4; border: 1px solid #00cfb4; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: bold; cursor: pointer; margin-bottom: 20px; width: 100%; display: flex; justify-content: center; gap: 8px; }
+        .big-btn { background: #25D366; color: #fff; border: none; padding: 15px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 20px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2); }
+
+        .section-title { font-size: 18px; margin-bottom: 15px; color: #fff; font-weight: bold; text-align: center; }
+        .info-text { font-size: 14px; color: #a0aec0; text-align: center; margin-bottom: 20px; line-height: 1.5; }
+
+        /* FOOTER */
+        footer { background-color: #121722; padding: 20px; text-align: center; border-top: 1px solid #1f2736; margin-top: auto; }
+        .f-text { color: #8fa0ba; font-size: 12px; margin-bottom: 8px; }
+        .f-link { display: inline-block; color: #00cfb4; text-decoration: none; border: 1px solid #00cfb4; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-top: 5px; }
     </style>
 </head>
 <body>
 
-    <div class="konteynir">
-        
-        <div>
-            <!-- ANA SƏHİFƏ -->
-            <div id="home-section" class="kart">
-                <h1 class="basliq">Xan Jeton</h1>
-                <p style="margin-bottom: 20px;">5 ildir ki, xidmətinizdəyik! Sürətli, etibarlı və ucuz.</p>
-                <div class="destek-info">🎧 Dəstək 7/24</div>
-                
-                <a href="#" onclick="showShop()" class="esas-duyme">TikTok Jeton Satışı 🚀</a>
-                <a href="https://wa.me/994508074145" class="whatsapp-duyme">Bizə Yazın: 050 807 41 45</a>
-            </div>
+    <header>
+        <div class="logo" onclick="showPage('home')">XAN JETON</div>
+        <div id="langToggle" class="flag-btn flag-az" onclick="switchLanguage()"></div>
+    </header>
 
-            <!-- TİKTOK JETON SATIŞI -->
-            <div id="shop-section" class="kart">
-                <h2 class="basliq" style="font-size: 24px;">TikTok Jetonları</h2>
-                <div class="jeton-grid">
-                    
-                    <div class="jeton-kart">
-                        <div class="jeton-adi">200 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">5 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%20200%20jeton%20(5%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="jeton-adi">450 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">10 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%20450%20jeton%20(10%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="etiket-super">🔥 Çox Satılan</div>
-                        <div class="jeton-adi">500 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">11 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%20500%20jeton%20(11%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="jeton-adi">700 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">15 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%20700%20jeton%20(15%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="etiket-vip">💎 Sərfəli</div>
-                        <div class="jeton-adi">1000 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">20 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%201000%20jeton%20(20%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="jeton-adi">1500 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">30 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%201500%20jeton%20(30%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="jeton-adi">2000 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">40 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%202000%20jeton%20(40%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="jeton-adi">2500 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">50 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%202500%20jeton%20(50%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="etiket-super">🔥 Tövsiyə</div>
-                        <div class="jeton-adi">3000 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">60 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%203000%20jeton%20(60%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="jeton-adi">3500 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">70 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%203500%20jeton%20(70%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="jeton-adi">5000 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">100 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%205000%20jeton%20(100%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="etiket-vip">💎 VIP Paket</div>
-                        <div class="jeton-adi">10000 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">200 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%2010000%20jeton%20(200%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="jeton-adi">15000 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">300 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%2015000%20jeton%20(300%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="jeton-adi">20000 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">400 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%2020000%20jeton%20(400%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="jeton-adi">25000 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">500 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%2025000%20jeton%20(500%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                    <div class="jeton-kart">
-                        <div class="etiket-super">🚀 ŞAH PAKET</div>
-                        <div class="jeton-adi">50000 jeton</div>
-                        <div class="qiymet-kapsulu"><span class="yeni-qiymet">1000 AZN</span></div>
-                        <a href="https://wa.me/994508074145?text=Salam,%2050000%20jeton%20(1000%20AZN)%20almaq%20istəyirəm" class="al-duymesi">Almaq</a>
-                    </div>
-
-                </div>
-                <a href="#" onclick="showHome()" class="geri-duyme">⬅ Geri Qayıt</a>
-            </div>
+    <div id="home" class="page active">
+        <div class="banner">
+            <h2 class="t" data-az="PREMİUM TİKTOK XİDMƏTLƏRİ" data-ru="ПРЕМИУМ УСЛУГИ TIKTOK">PREMİUM TİKTOK XİDMƏTLƏRİ</h2>
         </div>
 
-        <!-- MÜƏLLİFLİK BÖLMƏSİ (Ən Altda) -->
-        <div class="sayt-haqqinda">
-            <p>Haqqında</p>
-            <p>Bu sayt 19 İyul 2026-cı ildə</p>
-            <p>Cəlal tərəfindən hazırlanmışdır.</p>
-            <!-- WhatsApp Nömrəsinə Birbaşa Link -->
-            <a href="https://wa.me/994517375948" class="muellif-wp">Wp: 051 737 59 48</a>
+        <div class="grid-2">
+            <div class="card" onclick="showPage('jetonPage')">
+                <div class="card-icon">💎</div>
+                <div class="card-title t" data-az="TikTok Jeton qiymətləri" data-ru="Цены на монеты TikTok (Jeton)">TikTok Jeton qiymətləri</div>
+            </div>
+            <div class="card" onclick="showPage('unbanPage')">
+                <div class="card-icon">🔓</div>
+                <div class="card-title t" data-az="Bağlanmış TikTok hesablarının açılması" data-ru="Разблокировка TikTok аккаунтов">Bağlanmış TikTok hesablarının açılması</div>
+            </div>
+            <div class="card" onclick="showPage('buySellPage')">
+                <div class="card-icon">🔄</div>
+                <div class="card-title t" data-az="TikTok hesablarının alışı satışı" data-ru="Покупка и продажа TikTok аккаунтов">TikTok hesablarının alışı satışı</div>
+            </div>
+            <div class="card" onclick="showPage('giftPage')">
+                <div class="card-icon">🎁</div>
+                <div class="card-title t" data-az="Hədiyyələrin sifarişlə atılması" data-ru="Заказ и отправка подарков">Hədiyyələrin sifarişlə atılması</div>
+            </div>
+            <div class="card" onclick="showPage('tiktokPanel')">
+                <div class="card-icon">🚀</div>
+                <div class="card-title t" data-az="TikTok panel xidmətləri" data-ru="Панель услуг TikTok">TikTok panel xidmətləri</div>
+            </div>
+            <div class="card" onclick="showPage('instaPanel')">
+                <div class="card-icon">📸</div>
+                <div class="card-title t" data-az="Instagram panel xidmətləri" data-ru="Панель услуг Instagram">Instagram panel xidmətləri</div>
+            </div>
         </div>
-
     </div>
 
+    <div id="jetonPage" class="page">
+        <button class="back-btn" onclick="showPage('home')">⬅ <span class="t" data-az="Geri Qayıt" data-ru="Назад">Geri Qayıt</span></button>
+        <h2 class="section-title t" data-az="TikTok Jeton Qiymətləri" data-ru="Цены на монеты TikTok">TikTok Jeton Qiymətləri</h2>
+        
+        <div id="jetonList"></div>
+    </div>
+
+    <div id="tiktokPanel" class="page">
+        <button class="back-btn" onclick="showPage('home')">⬅ <span class="t" data-az="Geri Qayıt" data-ru="Назад">Geri Qayıt</span></button>
+        <h2 class="section-title t" data-az="TikTok Panel Xidmətləri" data-ru="Панель услуг TikTok">TikTok Panel Xidmətləri</h2>
+        <p class="info-text t" data-az="Takipçi, bəyənmə və izlənmə paketlərimiz. Sifariş üçün seçin." data-ru="Пакеты подписчиков, лайков и просмотров. Выберите для заказа.">Takipçi, bəyənmə və izlənmə paketlərimiz. Sifariş üçün seçin.</p>
+        
+        <div id="tiktokPanelList"></div>
+    </div>
+
+    <div id="instaPanel" class="page">
+        <button class="back-btn" onclick="showPage('home')">⬅ <span class="t" data-az="Geri Qayıt" data-ru="Назад">Geri Qayıt</span></button>
+        <h2 class="section-title t" data-az="Instagram Panel Xidmətləri" data-ru="Панель услуг Instagram">Instagram Panel Xidmətləri</h2>
+        <p class="info-text t" data-az="Takipçi, bəyənmə və izlənmə paketlərimiz. Sifariş üçün seçin." data-ru="Пакеты подписчиков, лайков и просмотров. Выберите для заказа.">Takipçi, bəyənmə və izlənmə paketlərimiz. Sifariş üçün seçin.</p>
+        
+        <div id="instaPanelList"></div>
+    </div>
+
+    <div id="unbanPage" class="page">
+        <button class="back-btn" onclick="showPage('home')">⬅ <span class="t" data-az="Geri Qayıt" data-ru="Назад">Geri Qayıt</span></button>
+        <h2 class="section-title t" data-az="Hesabların Açılması" data-ru="Разблокировка аккаунтов">Hesabların Açılması</h2>
+        <p class="info-text t" data-az="Bloklanmış və ya məhdudiyyət qoyulmuş TikTok hesablarınızın peşəkar bərpası. Ətraflı məlumat və sənədlərin təqdimi üçün adminlə əlaqə saxlayın." data-ru="Профессиональное восстановление заблокированных TikTok аккаунтов. Свяжитесь с админом для подробностей.">Bloklanmış və ya məhdudiyyət qoyulmuş TikTok hesablarınızın peşəkar bərpası.</p>
+        <button class="big-btn" onclick="sendWA('Salam, bağlanmış TikTok hesabının açılması ilə bağlı müraciət edirəm.')">
+            <span class="t" data-az="Adminlə Əlaqə (WhatsApp)" data-ru="Связаться с админом (WhatsApp)">Adminlə Əlaqə (WhatsApp)</span>
+        </button>
+    </div>
+
+    <div id="buySellPage" class="page">
+        <button class="back-btn" onclick="showPage('home')">⬅ <span class="t" data-az="Geri Qayıt" data-ru="Назад">Geri Qayıt</span></button>
+        <h2 class="section-title t" data-az="Hesab Alış-Satış" data-ru="Покупка и Продажа">Hesab Alış-Satış</h2>
+        <p class="info-text t" data-az="Təbii kütləli hesabların güvənli alqı-satqısı. İstədiyiniz izləyici sayına uyğun hesablar üçün bizə yazın." data-ru="Безопасная купля-продажа аккаунтов. Напишите нам для подбора аккаунта.">Təbii kütləli hesabların güvənli alqı-satqısı.</p>
+        <button class="big-btn" onclick="sendWA('Salam, TikTok hesablarının alqı-satqısı ilə maraqlanıram.')">
+            <span class="t" data-az="Adminlə Əlaqə (WhatsApp)" data-ru="Связаться с админом (WhatsApp)">Adminlə Əlaqə (WhatsApp)</span>
+        </button>
+    </div>
+
+    <div id="giftPage" class="page">
+        <button class="back-btn" onclick="showPage('home')">⬅ <span class="t" data-az="Geri Qayıt" data-ru="Назад">Geri Qayıt</span></button>
+        <h2 class="section-title t" data-az="Hədiyyələrin Atılması" data-ru="Отправка подарков">Hədiyyələrin Atılması</h2>
+        <p class="info-text t" data-az="Canlı yayımlara istədiyiniz hədiyyələrin (Aslan, Kainat və s.) sürətli və endirimli göndərilməsi xidməti." data-ru="Услуга быстрой отправки любых подарков на прямые эфиры со скидкой.">Canlı yayımlara istədiyiniz hədiyyələrin göndərilməsi xidməti.</p>
+        <button class="big-btn" onclick="sendWA('Salam, canlı yayıma hədiyyə göndərilməsi sifarişi vermək istəyirəm.')">
+            <span class="t" data-az="Adminlə Əlaqə (WhatsApp)" data-ru="Связаться с админом (WhatsApp)">Adminlə Əlaqə (WhatsApp)</span>
+        </button>
+    </div>
+
+    <footer>
+        <div class="f-text t" data-az="© Müəllif hüquqları qorunur." data-ru="© Авторские права защищены.">© Müəllif hüquqları qorunur.</div>
+        <div class="f-text t" data-az="Sayt 2026-cı ildə Cəlal tərəfindən hazırlanmışdır." data-ru="Сайт создан Джалалом в 2026 году.">Sayt 2026-cı ildə Cəlal tərəfindən hazırlanmışdır.</div>
+        <a href="https://wa.me/994517375948" class="f-link">
+            <span class="t" data-az="Əlaqə: wp-0517375948" data-ru="Связь: wp-0517375948">Əlaqə: wp-0517375948</span>
+        </a>
+    </footer>
+
     <script>
-        function showShop() {
-            document.getElementById('home-section').style.display = 'none';
-            document.getElementById('shop-section').style.display = 'block';
-            window.scrollTo(0, 0); // Səhifəni ən yuxarı qaldırır
+        const MAIN_WA = "994508074145"; 
+        let currentLang = "az";
+
+        // Məlumatların Generasiyası 
+        const jetonData = [
+            { count: 200, price: "5 AZN" }, { count: 450, price: "10 AZN" }, { count: 500, price: "11 AZN" },
+            { count: 700, price: "15 AZN" }, { count: 1000, price: "20 AZN" }, { count: 1500, price: "30 AZN" },
+            { count: 2000, price: "40 AZN" }, { count: 2500, price: "50 AZN" }, { count: 3000, price: "60 AZN" },
+            { count: 3500, price: "70 AZN" }, { count: 5000, price: "100 AZN" }, { count: 10000, price: "200 AZN" },
+            { count: 15000, price: "300 AZN" }, { count: 20000, price: "400 AZN" }, { count: 25000, price: "500 AZN" }, { count: 50000, price: "1000 AZN" }
+        ];
+
+        const panelData = [
+            { nameAz: "1000 Takipçi", nameRu: "1000 Подписчиков" }, { nameAz: "2000 Takipçi", nameRu: "2000 Подписчиков" }, { nameAz: "5000 Takipçi", nameRu: "5000 Подписчиков" }, { nameAz: "10000 Takipçi", nameRu: "10000 Подписчиков" },
+            { nameAz: "1000 Bəyənmə", nameRu: "1000 Лайков" }, { nameAz: "2000 Bəyənmə", nameRu: "2000 Лайков" }, { nameAz: "5000 Bəyənmə", nameRu: "5000 Лайков" },
+            { nameAz: "1000 İzlənmə", nameRu: "1000 Просмотров" }, { nameAz: "5000 İzlənmə", nameRu: "5000 Просмотров" }, { nameAz: "10000+ İzlənmə", nameRu: "10000+ Просмотров" }
+        ];
+
+        // Jeton siyahısını qurmaq
+        const jetonContainer = document.getElementById('jetonList');
+        jetonData.forEach(item => {
+            jetonContainer.innerHTML += `
+                <div class="list-item">
+                    <div class="list-title">💎 ${item.count} Jeton</div>
+                    <div style="display:flex; align-items:center;">
+                        <div class="list-price">${item.price}</div>
+                        <button class="action-btn t" data-az="Al" data-ru="Купить" onclick="sendOrder('TikTok Jeton', '${item.count} Jeton')">Al</button>
+                    </div>
+                </div>`;
+        });
+
+        // Panel siyahılarını qurmaq
+        function renderPanel(containerId, platform) {
+            const container = document.getElementById(containerId);
+            panelData.forEach(item => {
+                container.innerHTML += `
+                    <div class="list-item">
+                        <div class="list-title t" data-az="${platform} ${item.nameAz}" data-ru="${platform} ${item.nameRu}">${platform} ${item.nameAz}</div>
+                        <button class="action-btn t" data-az="Sifariş et" data-ru="Заказать" onclick="sendOrder('${platform} Panel', '${item.nameAz}')">Sifariş et</button>
+                    </div>`;
+            });
         }
-        function showHome() {
-            document.getElementById('home-section').style.display = 'block';
-            document.getElementById('shop-section').style.display = 'none';
+        renderPanel('tiktokPanelList', 'TikTok');
+        renderPanel('instaPanelList', 'Instagram');
+
+        // Səhifə dəyişmə
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
             window.scrollTo(0, 0);
+        }
+
+        // Sifariş və Normal Mesaj Yönləndirməsi
+        function sendWA(msg) {
+            window.location.href = `https://wa.me/${MAIN_WA}?text=${encodeURIComponent(msg)}`;
+        }
+
+        function sendOrder(category, product) {
+            let msg = (currentLang === 'az') 
+                ? `Salam, mən ${category} xidmətindən "${product}" sifariş etmək istəyirəm. Zəhmət olmasa qiymət və detalları yazardınız.`
+                : `Здравствуйте, я хочу заказать "${product}" из категории ${category}. Напишите, пожалуйста, цену и детали.`;
+            sendWA(msg);
+        }
+
+        // Dil Dəyişdirici Sistemi
+        function switchLanguage() {
+            currentLang = (currentLang === 'az') ? 'ru' : 'az';
+            
+            // Bayraq dəyişimi
+            const flag = document.getElementById('langToggle');
+            if (currentLang === 'ru') {
+                flag.classList.remove('flag-az');
+                flag.classList.add('flag-ru');
+            } else {
+                flag.classList.remove('flag-ru');
+                flag.classList.add('flag-az');
+            }
+
+            // Mətnlərin tərcüməsi
+            document.querySelectorAll('.t').forEach(el => {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    // Əgər input olsaydı bura yazılacaqdı
+                } else {
+                    el.innerText = el.getAttribute(`data-${currentLang}`);
+                }
+            });
         }
     </script>
 </body>
