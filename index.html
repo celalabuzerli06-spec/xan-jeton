@@ -1,245 +1,152 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xan Jeton - Premium Xidmətlər</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
-        body { background-color: #0b0e14; color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; }
-        
-        /* HEADER VƏ XAN JETON LOQOSU */
-        header { background-color: #121722; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1f2736; position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 26px; font-weight: 900; color: #ffffff; text-shadow: 0 0 8px #00cfb4, 0 0 15px #00cfb4; letter-spacing: 1px; cursor: pointer; font-style: italic; }
-        
-        /* BAYRAQ (DİL DƏYİŞDİRİCİ) */
-        .flag-btn { width: 32px; height: 22px; border-radius: 4px; cursor: pointer; box-shadow: 0 0 5px rgba(0,0,0,0.5); transition: 0.3s; }
-        .flag-az { background: linear-gradient(to bottom, #00b5e2 33.3%, #ef3340 33.3%, #ef3340 66.6%, #50b848 66.6%); }
-        .flag-ru { background: linear-gradient(to bottom, #ffffff 33.3%, #0039a6 33.3%, #0039a6 66.6%, #d52b1e 66.6%); }
-
-        /* SƏHİFƏLƏR */
-        .page { display: none; flex: 1; padding: 15px; animation: fadeIn 0.2s ease-in-out; }
-        .page.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* KİÇİLDİLMİŞ BANNER */
-        .banner { background: linear-gradient(135deg, #0f2041, #1a3673); padding: 20px 15px; border-radius: 10px; text-align: center; border: 1px solid #23438e; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-        .banner h2 { font-size: 18px; color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* XİDMƏT KARTLARI (2 SÜTUN) */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .card { background-color: #161d2b; border: 1px solid #1f2736; border-radius: 12px; padding: 15px 10px; text-align: center; cursor: pointer; transition: 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px; }
-        .card:active { background-color: #1a2436; border-color: #00cfb4; }
-        .card-icon { font-size: 28px; margin-bottom: 8px; }
-        .card-title { font-size: 12px; font-weight: 600; color: #e2e8f0; line-height: 1.4; }
-
-        /* JETON VƏ PANEL SİYAHILARI */
-        .list-item { background: #161d2b; border: 1px solid #1f2736; padding: 12px 15px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
-        .list-title { font-size: 14px; font-weight: bold; color: #fff; }
-        .list-price { font-size: 13px; color: #00cfb4; font-weight: bold; margin-right: 10px; }
-        
-        .action-btn { background: #00cfb4; color: #000; border: none; padding: 8px 16px; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; }
-        .action-btn:active { background: #00a892; }
-
-        /* GERİ VƏ BÖYÜK ƏLAQƏ DÜYMƏLƏRİ */
-        .back-btn { background: transparent; color: #00cfb4; border: 1px solid #00cfb4; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: bold; cursor: pointer; margin-bottom: 20px; width: 100%; display: flex; justify-content: center; gap: 8px; }
-        .big-btn { background: #25D366; color: #fff; border: none; padding: 15px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 20px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2); }
-
-        .section-title { font-size: 18px; margin-bottom: 15px; color: #fff; font-weight: bold; text-align: center; }
-        .info-text { font-size: 14px; color: #a0aec0; text-align: center; margin-bottom: 20px; line-height: 1.5; }
-
-        /* FOOTER */
-        footer { background-color: #121722; padding: 20px; text-align: center; border-top: 1px solid #1f2736; margin-top: auto; }
-        .f-text { color: #8fa0ba; font-size: 12px; margin-bottom: 8px; }
-        .f-link { display: inline-block; color: #00cfb4; text-decoration: none; border: 1px solid #00cfb4; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: bold; margin-top: 5px; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>XAN JETON – Rəsmi TikTok &amp; Sosial Media VIP Xidməti</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&amp;display=swap" rel="stylesheet">
+<script>
+var WA="https://wa.me/994508074145?text=";
+var COINS=[[500,12],[700,16],[1000,22,"🔥 Populyar"],[1500,33],[2000,44],[2200,50],[2500,55],[3000,66],[3500,77],[4000,88],[4500,99],[5000,110,"👑 VIP"],[5500,120],[7000,154],[10000,220,"⚡ Ən Sərfəli"]];
+var SERV={
+ hesab:{i:"🔄",t:"Hesabların Alış Satışı",d:"Güvənli səhifə alqı-satqısı. Hesabınızı satın və ya hazır, yoxlanılmış hesabları əldə edin – bütün proses şəffaf və təhlükəsizdir.",m:"salam hesabların alış satışı haqqında məlumat almaq istəyirəm"},
+ tiktok:{i:"🎵",t:"TikTok Panel Xidmətləri",d:"Takipçi, bəyəni və baxış artımı ilə profilinizi sürətlə böyüdün. Real görünüşlü və sabit nəticə.",m:"salam tiktok panel xidmətləri haqqında məlumat almaq istəyirəm"},
+ insta:{i:"📸",t:"Instagram Panel Xidmətləri",d:"İzləyici, like və Reels baxışları ilə Instagram hesabınızı irəli çəkin. Sürətli başlanğıc, rahat sifariş.",m:"salam instagram panel xidmətləri haqqında məlumat almaq istəyirəm"},
+ hediyye:{i:"🎁",t:"Hədiyyələrin Sifarişlə Atılması",d:"Canlı yayımlara VIP hədiyyələr sifariş edin. Sevdiyiniz yayımçını dəstəkləyin və fərqlənin.",m:"salam hədiyyələrin sifarişlə atılması xidmətini sifariş etmək istəyirəm"},
+ ban:{i:"🔓",t:"Bağlanmış TikTok Hesablarının Açılması",d:"Ban olmuş hesabların bərpası üçün təcrübəli komanda. Müraciət edin, hesabınızı geri qaytaraq.",m:"salam bağlanmış tiktok hesabımın açılması xidmətini istəyirəm"}
+};
+function showView(id){
+  var v=document.querySelectorAll(".view");
+  for(var k=0;k<v.length;k++)v[k].classList.remove("on");
+  var e=document.getElementById(id);e.classList.add("on");
+  var c=e.querySelectorAll(".st");
+  for(var j=0;j<c.length;j++){c[j].style.animation="none";c[j].offsetHeight;c[j].style.animation="";c[j].style.animationDelay=(j*0.06)+"s"}
+  window.scrollTo(0,0);
+}
+function openService(key){
+  var s=SERV[key];
+  document.getElementById("sIc").textContent=s.i;
+  document.getElementById("sTt").textContent=s.t;
+  document.getElementById("sDs").textContent=s.d;
+  document.getElementById("sBt").href=WA+encodeURIComponent(s.m);
+  showView("serviceView");
+}
+document.addEventListener("DOMContentLoaded",function(){
+  var L=document.getElementById("coinList"),h="";
+  for(var k=0;k<COINS.length;k++){var c=COINS[k];
+    h+='<div class="row st'+(c[2]?" hot":"")+'"><div class="coin3d">J</div><div class="ci"><b>'+c[0]+' jeton</b>'+(c[2]?'<span class="bd">'+c[2]+'</span>':'')+'</div><div class="pr">'+c[1]+' AZN</div><a class="al" href="'+WA+encodeURIComponent("salam "+c[0]+" jeton -"+c[1]+" AZN almaq istəyirəm")+'">Al</a></div>';}
+  L.innerHTML=h;
+  var cs=document.querySelectorAll(".tilt");
+  for(var i=0;i<cs.length;i++)(function(el){
+    el.addEventListener("pointermove",function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform="perspective(700px) rotateX("+(-y*10)+"deg) rotateY("+(x*10)+"deg) scale(1.03)"});
+    el.addEventListener("pointerleave",function(){el.style.transform=""});
+  })(cs[i]);
+  // particles
+  var cv=document.getElementById("bg"),x=cv.getContext("2d"),P=[],W,H;
+  function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener("resize",rs);
+  var cols=["#fbbf24","#00f2fe","#fe0979","#10b981"];
+  for(var n=0;n<38;n++)P.push({x:Math.random()*W,y:Math.random()*H,r:3+Math.random()*9,vy:.15+Math.random()*.5,vx:(Math.random()-.5)*.3,c:cols[n%4],p:Math.random()*6});
+  (function loop(){x.clearRect(0,0,W,H);
+    for(var q=0;q<P.length;q++){var o=P[q];o.y-=o.vy;o.x+=o.vx+Math.sin(o.p+=.01)*.2;if(o.y<-20){o.y=H+20;o.x=Math.random()*W}
+      x.globalAlpha=.55;x.shadowBlur=18;x.shadowColor=o.c;x.fillStyle=o.c;x.beginPath();x.arc(o.x,o.y,o.r,0,6.283);x.fill();
+      if(o.r>8){x.shadowBlur=0;x.globalAlpha=.8;x.fillStyle="#05050a";x.font="bold "+o.r+"px Poppins,sans-serif";x.textAlign="center";x.fillText("J",o.x,o.y+o.r*.35)}}
+    requestAnimationFrame(loop)})();
+});
+</script>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--gold:#fbbf24;--em:#10b981;--cy:#00f2fe;--pk:#fe0979}
+html,body{margin:0;background:#05050a;color:#fff;font-family:Poppins,system-ui,sans-serif}
+body{overflow-x:hidden;min-height:100vh}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+header{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 16px;background:#05050acc;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #fbbf2433}
+.logo{font-weight:800;font-size:18px;letter-spacing:1px;color:var(--gold);text-shadow:0 0 14px #fbbf24aa;white-space:nowrap}
+.ver{font-size:10px;font-weight:600;color:var(--em);border:1px solid #10b98188;padding:5px 10px;border-radius:99px;background:#10b9811a;text-align:center;line-height:1.2}
+main{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 16px 40px}
+.view{display:none}.view.on{display:block}
+.st{animation:su .6s both cubic-bezier(.2,.8,.2,1)}
+@keyframes su{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+.hero{text-align:center;padding:34px 0 18px}
+.fb{display:inline-block;font-size:12px;font-weight:600;padding:8px 16px;border-radius:99px;background:#fe097922;border:1px solid #fe097988;animation:fl 3s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-6px)}}
+h1{font-size:clamp(42px,13vw,80px);margin:18px 0 8px;font-weight:800;line-height:1;background:linear-gradient(90deg,#fbbf24,#fff3b0,#f59e0b,#fbbf24);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gs 4s linear infinite;filter:drop-shadow(0 0 18px #fbbf2466)}
+@keyframes gs{to{background-position:300% 0}}
+.sub{color:#cfcfe6;font-size:15px;margin:0 auto 20px;max-width:440px}
+.tb{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:26px}
+.tb div{padding:12px 4px;font-size:10.5px;font-weight:800;border-radius:16px;background:#ffffff0a;border:1px solid #10b98155;color:var(--em);animation:pl 2.6s infinite}
+.tb div:nth-child(2){animation-delay:.4s;color:var(--cy);border-color:#00f2fe55}.tb div:nth-child(3){animation-delay:.8s;color:var(--pk);border-color:#fe097955}
+.tb span{display:block;font-size:20px;margin-bottom:4px}
+@keyframes pl{50%{box-shadow:0 0 22px currentColor}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.card{position:relative;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:#fff;padding:22px;border-radius:26px;background:#ffffff0d;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid #ffffff22;transition:transform .15s ease-out,box-shadow .3s}
+.card::after,.al::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,#ffffff40,transparent);transform:skewX(-20deg);animation:sh 4s infinite}
+@keyframes sh{60%,100%{left:170%}}
+.card .ic{font-size:34px;width:60px;height:60px;display:grid;place-items:center;border-radius:20px;background:linear-gradient(135deg,#fe097944,#00f2fe33);margin-bottom:12px}
+.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:#b9b9d4;font-size:13px}
+.card.vip{grid-column:1/-1;border:2px solid transparent;background:linear-gradient(#10101c,#10101c) padding-box,linear-gradient(120deg,#fbbf24,#fff3b0,#f59e0b,#fbbf24) border-box;background-size:auto,300% 100%;animation:gs 4s linear infinite,vg 2.5s ease-in-out infinite}
+@keyframes vg{50%{box-shadow:0 0 38px #fbbf2466}}
+.card.vip .ic{background:radial-gradient(circle at 30% 25%,#fff8d0,#fbbf24 35%,#d98a00);animation:fl 2.6s ease-in-out infinite;font-weight:800;color:#6a3d00}
+.back{display:inline-block;margin:18px 0 6px;padding:10px 18px;border-radius:99px;background:#ffffff10;border:1px solid #ffffff2a;color:#fff;font:600 13px Poppins,sans-serif;cursor:pointer}
+.vh{text-align:center;margin:10px 0 20px}.vh h2{margin:0 0 4px;font-size:26px;color:var(--gold);text-shadow:0 0 16px #fbbf2480}.vh p{margin:0;color:#cfcfe6;font-size:14px}
+.row{position:relative;display:flex;align-items:center;gap:12px;padding:12px 12px 12px 14px;margin-bottom:11px;border-radius:99px;background:#ffffff0d;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #ffffff1f}
+.row.hot{border-color:#fbbf2499;box-shadow:0 0 22px #fbbf2433}
+.coin3d{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:20px;color:#7a4a00;background:radial-gradient(circle at 30% 25%,#fff8d0,#fbbf24 35%,#d98a00);box-shadow:inset 0 0 0 4px #ffffff55,0 0 18px #fbbf2488;animation:sp 3.2s linear infinite}
+@keyframes sp{0%{transform:rotateY(0)}100%{transform:rotateY(360deg)}}
+.ci{flex:1;min-width:0}.ci b{display:block;font-size:16px}
+.bd{display:inline-block;margin-top:2px;font-size:10px;font-weight:800;padding:2px 8px;border-radius:99px;background:#fe097933;color:#ff7ab3}
+.pr{font-weight:800;font-size:13.5px;color:#2a1800;background:linear-gradient(90deg,#fbbf24,#fde68a);padding:7px 11px;border-radius:99px;white-space:nowrap}
+.al,.big{position:relative;overflow:hidden;display:inline-block;text-decoration:none;color:#fff;font-weight:800;background:linear-gradient(135deg,#10b981,#059669);border-radius:99px;animation:gp 2s infinite}
+.al{padding:11px 22px;font-size:15px}
+@keyframes gp{0%{box-shadow:0 0 0 0 #10b981aa}70%{box-shadow:0 0 0 14px #10b98100}}
+.show{text-align:center;padding:34px 22px;margin-top:14px;border-radius:32px;background:#ffffff0d;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid #ffffff22}
+.show .big-ic{font-size:64px;width:120px;height:120px;margin:0 auto 16px;display:grid;place-items:center;border-radius:36px;background:linear-gradient(135deg,#fe097955,#00f2fe44);box-shadow:0 0 50px #fe097966;animation:fl 3s ease-in-out infinite}
+.show h2{margin:0 0 10px;font-size:24px;color:var(--gold)}.show p{color:#cfcfe6;font-size:14.5px;line-height:1.6}
+.ft{list-style:none;padding:0;margin:18px 0 24px;text-align:left;display:inline-block}.ft li{margin:8px 0;font-weight:600;font-size:14px}.ft li::before{content:"✔";color:var(--em);margin-right:10px}
+.big{padding:17px 30px;font-size:17px;width:100%;max-width:340px}
+.cp{text-align:center;color:#77778f;font-size:12px;padding:16px}
+</style>
 </head>
 <body>
+<canvas id="bg"></canvas>
+<header><div class="logo">👑 XAN JETON</div><div class="ver">✔ Azərbaycandan Rəsmi<br>Xidmət Səhifəsi</div></header>
+<main>
 
-    <header>
-        <div class="logo" onclick="showPage('home')">XAN JETON</div>
-        <div id="langToggle" class="flag-btn flag-az" onclick="switchLanguage()"></div>
-    </header>
+<section class="view on" id="homeView">
+  <div class="hero">
+    <div class="fb st">⚡ TikTok jetonları indi daha asan!</div>
+    <h1 class="st">XAN JETON</h1>
+    <p class="sub st">Daha çox canlı yayım, daha çox hədiyyə, daha çox qazanc!</p>
+    <div class="tb st"><div><span>🛡️</span>100% GÜVƏNLİ</div><div><span>⚡</span>SÜRƏTLİ ÇATDIRILMA</div><div><span>💬</span>24/7 DƏSTƏK</div></div>
+  </div>
+  <div class="grid">
+    <button class="card vip tilt st" onclick="showView('coinsView')"><div class="ic">J</div><h3>TikTok Jeton Qiymətləri</h3><p>Ən sərfəli jeton paketləri – 500-dən 10000-ə qədər</p></button>
+    <button class="card tilt st" onclick="openService('hesab')"><div class="ic">🔄</div><h3>Hesabların Alış Satışı</h3><p>Güvənli səhifə alqı-satqısı</p></button>
+    <button class="card tilt st" onclick="openService('tiktok')"><div class="ic">🎵</div><h3>TikTok Panel Xidmətləri</h3><p>Takipçi, bəyəni və baxış artımı</p></button>
+    <button class="card tilt st" onclick="openService('insta')"><div class="ic">📸</div><h3>Instagram Panel Xidmətləri</h3><p>İzləyici, like və Reels baxışları</p></button>
+    <button class="card tilt st" onclick="openService('hediyye')"><div class="ic">🎁</div><h3>Hədiyyələrin Sifarişlə Atılması</h3><p>Canlı yayımlara VIP hədiyyələr</p></button>
+    <button class="card tilt st" onclick="openService('ban')"><div class="ic">🔓</div><h3>Bağlanmış TikTok Hesablarının Açılması</h3><p>Ban olmuş hesabların bərpası</p></button>
+  </div>
+</section>
 
-    <div id="home" class="page active">
-        <div class="banner">
-            <h2 class="t" data-az="PREMİUM TİKTOK XİDMƏTLƏRİ" data-ru="ПРЕМИУМ УСЛУГИ TIKTOK">PREMİUM TİKTOK XİDMƏTLƏRİ</h2>
-        </div>
+<section class="view" id="coinsView">
+  <button class="back st" onclick="showView('homeView')">← Ana Səhifəyə Qayıt</button>
+  <div class="vh st"><h2>👑 TİKTOK JETONLAR</h2><p>Daha çox canlı yayım, daha çox hədiyyə!</p></div>
+  <div id="coinList"></div>
+</section>
 
-        <div class="grid-2">
-            <div class="card" onclick="showPage('jetonPage')">
-                <div class="card-icon">💎</div>
-                <div class="card-title t" data-az="TikTok Jeton qiymətləri" data-ru="Цены на монеты TikTok (Jeton)">TikTok Jeton qiymətləri</div>
-            </div>
-            <div class="card" onclick="showPage('unbanPage')">
-                <div class="card-icon">🔓</div>
-                <div class="card-title t" data-az="Bağlanmış TikTok hesablarının açılması" data-ru="Разблокировка TikTok аккаунтов">Bağlanmış TikTok hesablarının açılması</div>
-            </div>
-            <div class="card" onclick="showPage('buySellPage')">
-                <div class="card-icon">🔄</div>
-                <div class="card-title t" data-az="TikTok hesablarının alışı satışı" data-ru="Покупка и продажа TikTok аккаунтов">TikTok hesablarının alışı satışı</div>
-            </div>
-            <div class="card" onclick="showPage('giftPage')">
-                <div class="card-icon">🎁</div>
-                <div class="card-title t" data-az="Hədiyyələrin sifarişlə atılması" data-ru="Заказ и отправка подарков">Hədiyyələrin sifarişlə atılması</div>
-            </div>
-            <div class="card" onclick="showPage('tiktokPanel')">
-                <div class="card-icon">🚀</div>
-                <div class="card-title t" data-az="TikTok panel xidmətləri" data-ru="Панель услуг TikTok">TikTok panel xidmətləri</div>
-            </div>
-            <div class="card" onclick="showPage('instaPanel')">
-                <div class="card-icon">📸</div>
-                <div class="card-title t" data-az="Instagram panel xidmətləri" data-ru="Панель услуг Instagram">Instagram panel xidmətləri</div>
-            </div>
-        </div>
-    </div>
+<section class="view" id="serviceView">
+  <button class="back st" onclick="showView('homeView')">← Ana Səhifəyə Qayıt</button>
+  <div class="show st">
+    <div class="big-ic" id="sIc">🎵</div>
+    <h2 id="sTt"></h2>
+    <p id="sDs"></p>
+    <ul class="ft"><li>100% Zəmanət</li><li>Dərhal İcra</li><li>Rəsmi Xidmət</li></ul><br>
+    <a class="big" id="sBt" href="#">WhatsApp-a keçid et</a>
+  </div>
+</section>
 
-    <div id="jetonPage" class="page">
-        <button class="back-btn" onclick="showPage('home')">⬅ <span class="t" data-az="Geri Qayıt" data-ru="Назад">Geri Qayıt</span></button>
-        <h2 class="section-title t" data-az="TikTok Jeton Qiymətləri" data-ru="Цены на монеты TikTok">TikTok Jeton Qiymətləri</h2>
-        
-        <div id="jetonList"></div>
-    </div>
-
-    <div id="tiktokPanel" class="page">
-        <button class="back-btn" onclick="showPage('home')">⬅ <span class="t" data-az="Geri Qayıt" data-ru="Назад">Geri Qayıt</span></button>
-        <h2 class="section-title t" data-az="TikTok Panel Xidmətləri" data-ru="Панель услуг TikTok">TikTok Panel Xidmətləri</h2>
-        <p class="info-text t" data-az="Takipçi, bəyənmə və izlənmə paketlərimiz. Sifariş üçün seçin." data-ru="Пакеты подписчиков, лайков и просмотров. Выберите для заказа.">Takipçi, bəyənmə və izlənmə paketlərimiz. Sifariş üçün seçin.</p>
-        
-        <div id="tiktokPanelList"></div>
-    </div>
-
-    <div id="instaPanel" class="page">
-        <button class="back-btn" onclick="showPage('home')">⬅ <span class="t" data-az="Geri Qayıt" data-ru="Назад">Geri Qayıt</span></button>
-        <h2 class="section-title t" data-az="Instagram Panel Xidmətləri" data-ru="Панель услуг Instagram">Instagram Panel Xidmətləri</h2>
-        <p class="info-text t" data-az="Takipçi, bəyənmə və izlənmə paketlərimiz. Sifariş üçün seçin." data-ru="Пакеты подписчиков, лайков и просмотров. Выберите для заказа.">Takipçi, bəyənmə və izlənmə paketlərimiz. Sifariş üçün seçin.</p>
-        
-        <div id="instaPanelList"></div>
-    </div>
-
-    <div id="unbanPage" class="page">
-        <button class="back-btn" onclick="showPage('home')">⬅ <span class="t" data-az="Geri Qayıt" data-ru="Назад">Geri Qayıt</span></button>
-        <h2 class="section-title t" data-az="Hesabların Açılması" data-ru="Разблокировка аккаунтов">Hesabların Açılması</h2>
-        <p class="info-text t" data-az="Bloklanmış və ya məhdudiyyət qoyulmuş TikTok hesablarınızın peşəkar bərpası. Ətraflı məlumat və sənədlərin təqdimi üçün adminlə əlaqə saxlayın." data-ru="Профессиональное восстановление заблокированных TikTok аккаунтов. Свяжитесь с админом для подробностей.">Bloklanmış və ya məhdudiyyət qoyulmuş TikTok hesablarınızın peşəkar bərpası.</p>
-        <button class="big-btn" onclick="sendWA('Salam, bağlanmış TikTok hesabının açılması ilə bağlı müraciət edirəm.')">
-            <span class="t" data-az="Adminlə Əlaqə (WhatsApp)" data-ru="Связаться с админом (WhatsApp)">Adminlə Əlaqə (WhatsApp)</span>
-        </button>
-    </div>
-
-    <div id="buySellPage" class="page">
-        <button class="back-btn" onclick="showPage('home')">⬅ <span class="t" data-az="Geri Qayıt" data-ru="Назад">Geri Qayıt</span></button>
-        <h2 class="section-title t" data-az="Hesab Alış-Satış" data-ru="Покупка и Продажа">Hesab Alış-Satış</h2>
-        <p class="info-text t" data-az="Təbii kütləli hesabların güvənli alqı-satqısı. İstədiyiniz izləyici sayına uyğun hesablar üçün bizə yazın." data-ru="Безопасная купля-продажа аккаунтов. Напишите нам для подбора аккаунта.">Təbii kütləli hesabların güvənli alqı-satqısı.</p>
-        <button class="big-btn" onclick="sendWA('Salam, TikTok hesablarının alqı-satqısı ilə maraqlanıram.')">
-            <span class="t" data-az="Adminlə Əlaqə (WhatsApp)" data-ru="Связаться с админом (WhatsApp)">Adminlə Əlaqə (WhatsApp)</span>
-        </button>
-    </div>
-
-    <div id="giftPage" class="page">
-        <button class="back-btn" onclick="showPage('home')">⬅ <span class="t" data-az="Geri Qayıt" data-ru="Назад">Geri Qayıt</span></button>
-        <h2 class="section-title t" data-az="Hədiyyələrin Atılması" data-ru="Отправка подарков">Hədiyyələrin Atılması</h2>
-        <p class="info-text t" data-az="Canlı yayımlara istədiyiniz hədiyyələrin (Aslan, Kainat və s.) sürətli və endirimli göndərilməsi xidməti." data-ru="Услуга быстрой отправки любых подарков на прямые эфиры со скидкой.">Canlı yayımlara istədiyiniz hədiyyələrin göndərilməsi xidməti.</p>
-        <button class="big-btn" onclick="sendWA('Salam, canlı yayıma hədiyyə göndərilməsi sifarişi vermək istəyirəm.')">
-            <span class="t" data-az="Adminlə Əlaqə (WhatsApp)" data-ru="Связаться с админом (WhatsApp)">Adminlə Əlaqə (WhatsApp)</span>
-        </button>
-    </div>
-
-    <footer>
-        <div class="f-text t" data-az="© Müəllif hüquqları qorunur." data-ru="© Авторские права защищены.">© Müəllif hüquqları qorunur.</div>
-        <div class="f-text t" data-az="Sayt 2026-cı ildə Cəlal tərəfindən hazırlanmışdır." data-ru="Сайт создан Джалалом в 2026 году.">Sayt 2026-cı ildə Cəlal tərəfindən hazırlanmışdır.</div>
-        <a href="https://wa.me/994517375948" class="f-link">
-            <span class="t" data-az="Əlaqə: wp-0517375948" data-ru="Связь: wp-0517375948">Əlaqə: wp-0517375948</span>
-        </a>
-    </footer>
-
-    <script>
-        const MAIN_WA = "994508074145"; 
-        let currentLang = "az";
-
-        // Məlumatların Generasiyası 
-        const jetonData = [
-            { count: 200, price: "5 AZN" }, { count: 450, price: "10 AZN" }, { count: 500, price: "11 AZN" },
-            { count: 700, price: "15 AZN" }, { count: 1000, price: "20 AZN" }, { count: 1500, price: "30 AZN" },
-            { count: 2000, price: "40 AZN" }, { count: 2500, price: "50 AZN" }, { count: 3000, price: "60 AZN" },
-            { count: 3500, price: "70 AZN" }, { count: 5000, price: "100 AZN" }, { count: 10000, price: "200 AZN" },
-            { count: 15000, price: "300 AZN" }, { count: 20000, price: "400 AZN" }, { count: 25000, price: "500 AZN" }, { count: 50000, price: "1000 AZN" }
-        ];
-
-        const panelData = [
-            { nameAz: "1000 Takipçi", nameRu: "1000 Подписчиков" }, { nameAz: "2000 Takipçi", nameRu: "2000 Подписчиков" }, { nameAz: "5000 Takipçi", nameRu: "5000 Подписчиков" }, { nameAz: "10000 Takipçi", nameRu: "10000 Подписчиков" },
-            { nameAz: "1000 Bəyənmə", nameRu: "1000 Лайков" }, { nameAz: "2000 Bəyənmə", nameRu: "2000 Лайков" }, { nameAz: "5000 Bəyənmə", nameRu: "5000 Лайков" },
-            { nameAz: "1000 İzlənmə", nameRu: "1000 Просмотров" }, { nameAz: "5000 İzlənmə", nameRu: "5000 Просмотров" }, { nameAz: "10000+ İzlənmə", nameRu: "10000+ Просмотров" }
-        ];
-
-        // Jeton siyahısını qurmaq
-        const jetonContainer = document.getElementById('jetonList');
-        jetonData.forEach(item => {
-            jetonContainer.innerHTML += `
-                <div class="list-item">
-                    <div class="list-title">💎 ${item.count} Jeton</div>
-                    <div style="display:flex; align-items:center;">
-                        <div class="list-price">${item.price}</div>
-                        <button class="action-btn t" data-az="Al" data-ru="Купить" onclick="sendOrder('TikTok Jeton', '${item.count} Jeton')">Al</button>
-                    </div>
-                </div>`;
-        });
-
-        // Panel siyahılarını qurmaq
-        function renderPanel(containerId, platform) {
-            const container = document.getElementById(containerId);
-            panelData.forEach(item => {
-                container.innerHTML += `
-                    <div class="list-item">
-                        <div class="list-title t" data-az="${platform} ${item.nameAz}" data-ru="${platform} ${item.nameRu}">${platform} ${item.nameAz}</div>
-                        <button class="action-btn t" data-az="Sifariş et" data-ru="Заказать" onclick="sendOrder('${platform} Panel', '${item.nameAz}')">Sifariş et</button>
-                    </div>`;
-            });
-        }
-        renderPanel('tiktokPanelList', 'TikTok');
-        renderPanel('instaPanelList', 'Instagram');
-
-        // Səhifə dəyişmə
-        function showPage(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
-
-        // Sifariş və Normal Mesaj Yönləndirməsi
-        function sendWA(msg) {
-            window.location.href = `https://wa.me/${MAIN_WA}?text=${encodeURIComponent(msg)}`;
-        }
-
-        function sendOrder(category, product) {
-            let msg = (currentLang === 'az') 
-                ? `Salam, mən ${category} xidmətindən "${product}" sifariş etmək istəyirəm. Zəhmət olmasa qiymət və detalları yazardınız.`
-                : `Здравствуйте, я хочу заказать "${product}" из категории ${category}. Напишите, пожалуйста, цену и детали.`;
-            sendWA(msg);
-        }
-
-        // Dil Dəyişdirici Sistemi
-        function switchLanguage() {
-            currentLang = (currentLang === 'az') ? 'ru' : 'az';
-            
-            // Bayraq dəyişimi
-            const flag = document.getElementById('langToggle');
-            if (currentLang === 'ru') {
-                flag.classList.remove('flag-az');
-                flag.classList.add('flag-ru');
-            } else {
-                flag.classList.remove('flag-ru');
-                flag.classList.add('flag-az');
-            }
-
-            // Mətnlərin tərcüməsi
-            document.querySelectorAll('.t').forEach(el => {
-                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                    // Əgər input olsaydı bura yazılacaqdı
-                } else {
-                    el.innerText = el.getAttribute(`data-${currentLang}`);
-                }
-            });
-        }
-    </script>
+<div class="cp">© XanJeton.com · Rəsmi Xidmət</div>
+</main>
 </body>
 </html>
+
